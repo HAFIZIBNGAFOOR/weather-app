@@ -1,0 +1,66 @@
+<div class="w-4/4 p-3">
+  <h1
+    class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-gray text-center text-blue-600"
+  >
+    Weather App
+  </h1>
+</div>
+<div class="flex w-screen h-screen p-5">
+  <!-- <div class="w-1/4">
+    <h1>Saved Location</h1>
+  </div> -->
+  <div class="w-screen">
+    <app-search (sendWhetherData)="getData($event)"></app-search>
+    <div class="flex justify-center pt-5">
+      <div
+        [ngClass]="backgroundImageUrl"
+        class="block h-96 w-3/4 bg-no-repeat bg-cover bg-center object-cover p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      >
+        <h5 class="text-2xl font-medium text-gray-100">
+          {{ whetherData.city | uppercase }}
+        </h5>
+        <h5 class="text-2xl font-light text-gray-100">
+          {{ whetherData.description | uppercase }}
+        </h5>
+        <img [src]="imageUrl" alt="icon" class="h-max max-w-full" />
+
+        <h4 class="mb-2 text-2xl font-bold tracking-tight text-blue-600">
+          Temp: {{ whetherData.temp | number : "1.1-2" }}&deg;C
+        </h4>
+      </div>
+    </div>
+    <div class="flex justify-center p-4">
+      <div class="rounded-md w-1/6 bg-blue-100 m-2">
+        <h4 class="text-center p-4">
+          <img src="../../assets/weather (1).png" class="h-28 w-22" alt="cloud" />
+          <span class="block mt-2 text-xl font-bold">{{ whetherData.humidity }} &deg;C</span>
+          Humidity
+        </h4>
+      </div>
+      
+      <div class="rounded-md w-1/6 bg-blue-100 m-2">
+        <h4 class="text-center p-4">
+          <img src="../../assets/cloud.png" class="h-28 w-22" alt="cloud" />
+          <span class="block mt-2 text-xl font-bold">{{ whetherData.wind }}</span>
+          Wind speed
+        </h4>
+      </div>
+      
+      <div class="rounded-md w-1/6 bg-blue-100 m-2">
+        <h4 class="text-center p-4">
+          <img src="../../assets/fever.png" class="h-28 w-22" alt="cloud" />
+          <span class="block mt-2 text-xl font-bold">{{ whetherData.maxTemp | number : "1.1-2"}} &deg;C</span>
+          Max Temp
+        </h4>
+      </div>
+      
+      <div class="rounded-md w-1/6 bg-blue-100 m-2">
+        <h4 class="text-center p-4">
+          <img src="../../assets/low-temperature.png" class="h-28 w-22" alt="cloud" />
+          <span class="block mt-2 text-xl font-bold">{{ whetherData.minTemp | number : "1.1-2"}} &deg;C</span>
+          Min Temp
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
